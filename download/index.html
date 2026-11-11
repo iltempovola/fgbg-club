@@ -2,24 +2,30 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download FGBG beta for Android</title>
+<script src="/assets/funnel-i18n.js" defer></script>
 <style>
 body { font-family: system-ui, Arial, sans-serif; font-size: 17px; line-height: 1.6; color: #1d2321; background: #fafcf7; max-width: 720px; margin: 32px auto; padding: 0 20px; }
 h1 { color: #1f5e3b; } a { color: #1f5e3b; }
 .btn { display: inline-block; background: #1f5e3b; color: #fff; padding: 14px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; }
 small { color: #5b6a60; word-break: break-all; }
+header { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+select { max-width:45vw; min-height:40px; padding:6px 9px; border:1px solid #aebcaf; border-radius:9px; background:#fff; font:inherit; }
+html[dir="rtl"] body { text-align:right; }
+html[dir="rtl"] ol { padding-right:32px; padding-left:0; }
 </style></head><body>
-<header><p><a href="/">FGBG — Feel Good, Be Good</a></p></header>
+<header><p><a href="/">FGBG — Feel Good, Be Good</a></p><label for="download-language" data-i18n="language">Language</label> <select class="language-selector" id="download-language"><option value="en">English</option><option value="id">Bahasa Indonesia</option><option value="ms">Bahasa Melayu</option><option value="fil">English (PH)</option><option value="ur">اردو</option><option value="th">ไทย</option><option value="vi">Tiếng Việt</option></select></header>
 <main>
-<h1>FGBG beta for Android</h1>
-<p>FGBG finds the best dish for <strong>your goal</strong> at restaurants near you — lose weight, eat healthier, keto/low-carb, high-protein, vegetarian, halal, diabetic-friendly and more — and helps you order it.</p>
-<p><a class="btn" href="/download/fgbg-beta.apk">Download FGBG beta (Android, 42 MB)</a></p>
-<h2>How to install</h2>
+<h1 data-i18n="downloadTitle">FGBG beta for Android</h1>
+<p data-i18n="downloadIntro">FGBG finds the best dish for your goal at restaurants near you — lose weight, eat healthier, keto/low-carb, high-protein, vegetarian, halal, diabetic-friendly and more — and helps you order it.</p>
+<p><a class="btn" href="/download/fgbg-beta.apk"><span data-i18n="downloadButton">Download FGBG beta (Android, 42 MB)</span></a></p>
+<h2 data-i18n="install">How to install</h2>
 <ol>
-<li>Tap the button above on your Android phone.</li>
-<li>Open the downloaded file. If asked, allow your browser to "install unknown apps".</li>
-<li>Open FGBG, choose your language and goal, and try it at a restaurant near you.</li>
+<li data-i18n="step1">Tap the button above on your Android phone.</li>
+<li data-i18n="step2">Open the downloaded file. If asked, allow your browser to "install unknown apps".</li>
+<li data-i18n="step3">Open FGBG, choose your language and goal, and try it at a restaurant near you.</li>
 </ol>
-<p>Available in English, Bahasa Melayu, Bahasa Indonesia, Português, 中文, Español and हिन्दी.</p>
-<p>Beta testers: please send feedback through the platform where you found us.</p>
-<p><small>Version 0.2.0 (26111101) · SHA-256 833a7e7969e8fa08a5263fee1e521841f65c2dd6543c84760193e132febdc8e2 · By EUMENES.AI PTE. LTD. · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></small></p>
+<p data-i18n="available">Available in English, Bahasa Melayu, Bahasa Indonesia, Português, 中文, Español and हिन्दी.</p>
+<p data-i18n="pageLanguage">This page language does not guarantee the app is available in the same language.</p>
+<p data-i18n="beta">Beta testers: please send feedback through the platform where you found us.</p>
+<p><small><span data-i18n="version">Version</span> 0.2.0 (26111101) · SHA-256 833a7e7969e8fa08a5263fee1e521841f65c2dd6543c84760193e132febdc8e2 · <span data-i18n="by">By</span> EUMENES.AI PTE. LTD. · <a href="/privacy/" data-i18n="privacy">Privacy</a> · <a href="/terms/" data-i18n="terms">Terms</a></small></p>
 </main></body></html>
