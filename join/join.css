@@ -23,3 +23,8 @@
 .join-note{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:.92rem;color:var(--mut)}
 .noscript-note{margin:18px 0 0;padding:12px;background:#fff3d6;border-radius:10px;color:#5a3d00}
 @media(max-width:480px){.top{position:static}.join-main{padding-top:22px}.join-card{border-radius:14px}}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.top-actions{display:flex;align-items:center;gap:10px}.language-selector{max-width:45vw;min-height:40px;padding:6px 9px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font:inherit;font-size:.9rem}
+html[dir="rtl"] .join-card{text-align:right}
+.top{flex-wrap:wrap;gap:12px}.top-actions{flex-wrap:wrap;max-width:100%}.top .brand{flex-shrink:0}
+.join-card,.field{min-width:0}.join-card{overflow-wrap:anywhere}

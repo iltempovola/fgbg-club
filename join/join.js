@@ -11,6 +11,8 @@
   const status = document.getElementById('join-status');
   const success = document.getElementById('success-instructions');
   const endpoint = form.dataset.endpoint;
+  const copy = () => (window.FunnelI18n || { t: {} }).t;
+  const message = (key) => copy()[key] || key;
   let submitting = false;
 
   function setMessage(message, kind = '') {
@@ -46,9 +48,9 @@
     event.preventDefault();
     if (submitting) return;
     if (!validate()) {
-      if (!consentInput.checked) setMessage('Please give the required consent before submitting.', 'error');
-      else if (!validGmail(gmailInput.value.trim())) setMessage('Enter a valid Gmail address ending in @gmail.com.', 'error');
-      else setMessage('Enter a handle and city between 1 and 100 characters each.', 'error');
+      if (!consentInput.checked) setMessage(message('needConsent'), 'error');
+      else if (!validGmail(gmailInput.value.trim())) setMessage(message('invalidGmail'), 'error');
+      else setMessage(message('invalidFields'), 'error');
       return;
     }
 
@@ -56,7 +58,7 @@
     submitting = true;
     button.disabled = true;
     [gmailInput, handleInput, cityInput, consentInput].forEach((control) => { control.disabled = true; });
-    setMessage('Sending your request…');
+    setMessage(message('sending'));
 
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 15000);
@@ -82,21 +84,21 @@
       if (response.ok && result && result.ok === true) {
         form.reset();
         success.hidden = false;
-        setMessage('Your request was received.');
+        setMessage(message('received'));
       } else if (response.status === 422) {
-        setMessage('Check your Gmail, handle and city, then try again.', 'error');
+        setMessage(message('invalidResponse'), 'error');
       } else if (response.status === 429) {
-        setMessage('Too many attempts right now. Wait a little, then try again.', 'error');
+        setMessage(message('rateLimit'), 'error');
       } else if (response.status >= 500) {
-        setMessage('The service is temporarily unavailable. Your request may not have been recorded; you can try again.', 'error');
+        setMessage(message('unavailable'), 'error');
       } else {
-        setMessage('We could not confirm your request. It may not have been recorded; you can try again.', 'error');
+        setMessage(message('unconfirmed'), 'error');
       }
     } catch (error) {
       if (error && error.name === 'AbortError') {
-        setMessage('The request timed out. It may have been recorded; you can try again.', 'error');
+        setMessage(message('timedOut'), 'error');
       } else {
-        setMessage('We could not reach the service. Your request may not have been recorded; you can try again.', 'error');
+        setMessage(message('unreachable'), 'error');
       }
     } finally {
       window.clearTimeout(timeout);

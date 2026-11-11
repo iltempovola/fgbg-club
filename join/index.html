@@ -11,30 +11,32 @@
 <link rel="icon" type="image/png" href="/assets/favicon-64.png">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/join/join.css">
+<script src="/assets/funnel-i18n.js" defer></script>
 <script src="/join/join.js" defer></script>
 </head>
 <body>
 <header class="top">
   <a class="brand" href="/"><img src="/assets/fgbg-icon-192.png" alt="" width="36" height="36"><span>FGBG</span></a>
-  <a class="pill" href="/privacy/">Privacy</a>
+  <div class="top-actions"><label class="visually-hidden" for="join-language" data-i18n="language">Language</label><select class="language-selector" id="join-language"><option value="en">English</option><option value="id">Bahasa Indonesia</option><option value="ms">Bahasa Melayu</option><option value="fil">English (PH)</option><option value="ur">اردو</option><option value="th">ไทย</option><option value="vi">Tiếng Việt</option></select><a class="pill" href="/privacy/" data-i18n="privacy">Privacy</a></div>
 </header>
 <main class="join-main">
   <section class="join-card" aria-labelledby="join-title">
-    <p class="kicker">Google Play testing · private invitation</p>
-    <h1 id="join-title">Join the FGBG test</h1>
-    <p class="join-intro">Share the Gmail you use on Google Play, your Freelancer or Reddit handle, and your city so we can coordinate your test access.</p>
+    <p class="kicker" data-i18n="joinKicker">Google Play testing · private invitation</p>
+    <h1 id="join-title" data-i18n="joinTitle">Join the FGBG test</h1>
+    <p class="join-intro" data-i18n="intro">Share the Gmail you use on Google Play, your Freelancer or Reddit handle, and your city so we can coordinate your test access.</p>
+    <p data-i18n="pageLanguage">This page language does not guarantee the app is available in the same language.</p>
     <form id="join-form" method="post" action="https://api.fborder.eumenes.ai/v1/growth/testers" data-endpoint="https://api.fborder.eumenes.ai/v1/growth/testers" novalidate>
       <div class="field">
-        <label for="gmail">Gmail used on Google Play</label>
-        <input id="gmail" name="gmail" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" required maxlength="254" aria-describedby="gmail-help">
-        <small id="gmail-help">Enter the Gmail address for the Google account you will use to accept the test invitation. Do not share it in recruitment chat.</small>
+        <label for="gmail" data-i18n="gmail">Gmail used on Google Play</label>
+        <input id="gmail" dir="ltr" name="gmail" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" required maxlength="254" aria-describedby="gmail-help">
+        <small id="gmail-help" data-i18n="gmailHelp">Enter the Gmail address for the Google account you will use to accept the test invitation. Do not share it in recruitment chat.</small>
       </div>
       <div class="field">
-        <label for="handle">Freelancer or Reddit handle</label>
+        <label for="handle" data-i18n="handle">Freelancer or Reddit handle</label>
         <input id="handle" name="handle" type="text" autocomplete="off" required>
       </div>
       <div class="field">
-        <label for="city">City</label>
+        <label for="city" data-i18n="city">City</label>
         <input id="city" name="city" type="text" autocomplete="address-level2" required>
       </div>
       <div class="honeypot" aria-hidden="true" inert>
@@ -43,21 +45,21 @@
       </div>
       <div class="consent-field">
         <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-help">
-        <label for="consent">I agree that FGBG may use the details I submit to coordinate my testing, and share my Gmail address with Google for test access. This is not marketing consent.</label>
+        <label for="consent" data-i18n="consent">I agree that FGBG may use the details I submit to coordinate my testing, and share my Gmail address with Google for test access. This is not marketing consent.</label>
       </div>
-      <small id="consent-help" class="privacy-note">We retain this submission for 30 days. To request removal, email <a href="mailto:support@eumenes.ai">support@eumenes.ai</a>. See the <a href="/privacy/">FGBG Privacy Policy</a>.</small>
-      <button id="submit-button" class="btn primary" type="submit" disabled>Request test access</button>
+      <small id="consent-help" class="privacy-note"><span data-i18n="retention">We retain this submission for 30 days. To request removal, email</span> <a href="mailto:support@eumenes.ai">support@eumenes.ai</a>. <span data-i18n="see">See the</span> <a href="/privacy/" data-i18n="privacyPolicy">FGBG Privacy Policy</a>.</small>
+      <button id="submit-button" class="btn primary" type="submit" disabled data-i18n="request">Request test access</button>
       <p id="join-status" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
     </form>
     <section id="success-instructions" class="success-instructions" aria-labelledby="success-title" hidden>
-      <h2 id="success-title">Next steps</h2>
-      <p>You will be added within 1 hour; then open <a href="https://play.google.com/apps/internaltest/4701253804555709437">Google Play testing</a> and tap Accept, then Download.</p>
-      <p>Open the link using the same Google account as the Gmail address you submitted. This request does not add you to the test automatically.</p>
+      <h2 id="success-title" data-i18n="next">Next steps</h2>
+      <p><span data-i18n="success1">You will be added within 1 hour; then open</span> <a href="https://play.google.com/apps/internaltest/4701253804555709437" data-i18n="testing">Google Play testing</a> <span data-i18n="success2">and tap Accept, then Download.</span></p>
+      <p data-i18n="success3">Open the link using the same Google account as the Gmail address you submitted. This request does not add you to the test automatically.</p>
     </section>
-    <p class="join-note">Having trouble accessing Google Play? <a href="/download">Download the APK</a> instead.</p>
-    <noscript><p class="noscript-note">JavaScript is required to submit this form. Enable JavaScript and reload; this page will not send the form without it.</p></noscript>
+    <p class="join-note"><span data-i18n="trouble">Having trouble accessing Google Play?</span> <a href="/download" data-preserve-lang data-i18n="apk">Download the APK</a> <span data-i18n="instead">instead.</span></p>
+    <noscript><p class="noscript-note" data-i18n="noscript">JavaScript is required to submit this form. Enable JavaScript and reload; this page will not send the form without it.</p></noscript>
   </section>
 </main>
-<footer><p><b>FGBG</b> — Feel Good, Be Good · by EUMENES.AI PTE. LTD.</p><p><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="mailto:support@eumenes.ai">support@eumenes.ai</a></p></footer>
+<footer><p><b>FGBG</b> — Feel Good, Be Good · by EUMENES.AI PTE. LTD.</p><p><a href="/privacy/" data-i18n="privacy">Privacy</a> · <a href="/terms/" data-i18n="terms">Terms</a> · <a href="mailto:support@eumenes.ai">support@eumenes.ai</a></p></footer>
 </body>
 </html>
