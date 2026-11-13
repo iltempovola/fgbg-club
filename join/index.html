@@ -3,36 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get FGBG for Android — FGBG</title>
-<meta name="description" content="Download the FGBG Android beta, install it, and try it at a restaurant near you.">
+<title>Join the FGBG test — FGBG</title>
+<meta name="description" content="Request FGBG Google Play internal testing access.">
 <meta name="theme-color" content="#1f5e3d">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="/assets/favicon-64.png">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/join/join.css">
-<script src="/assets/funnel-i18n.js" defer></script>
+<script src="/join/i18n.js" defer></script>
+<script src="/join/join.js" defer></script>
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="/" aria-label="FGBG home"><img src="/assets/fgbg-icon-192.png" alt="" width="36" height="36"><span>FGBG</span></a>
-  <div class="top-actions"><label class="visually-hidden" for="join-language" data-i18n="language">Language</label><select class="language-selector" id="join-language"><option value="en">English</option><option value="id">Bahasa Indonesia</option><option value="ms">Bahasa Melayu</option><option value="fil">English (PH)</option><option value="ur">اردو</option><option value="th">ไทย</option><option value="vi">Tiếng Việt</option></select><a class="pill" href="/privacy/" data-i18n="privacy">Privacy</a></div>
+  <a class="brand" href="/"><img src="/assets/fgbg-icon-192.png" alt="" width="36" height="36"><span>FGBG</span></a>
+  <div class="top-actions"><label class="visually-hidden" for="join-language" data-i18n="language">Language</label><select class="language-selector" id="join-language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="id">Bahasa Indonesia</option><option value="ms">Bahasa Melayu</option><option value="fil">English (PH)</option><option value="ur">اردو</option><option value="th">ไทย</option><option value="vi">Tiếng Việt</option></select><a class="pill" href="/privacy/" data-i18n="privacy">Privacy</a></div>
 </header>
 <main class="join-main">
   <section class="join-card" aria-labelledby="join-title">
-    <p class="kicker" data-i18n="joinKicker">Android beta · install and try</p>
-    <h1 id="join-title" data-i18n="joinTitle">Try FGBG on Android</h1>
-    <p class="join-intro" data-i18n="joinIntro">Download the FGBG beta, install it on your Android phone, and try it at a restaurant near you.</p>
-    <p><a class="btn primary" href="/download/?lang=en" data-preserve-lang data-i18n="joinDownload">Download the Android APK</a></p>
-    <section class="success-instructions" aria-labelledby="install-title">
-      <h2 id="install-title" data-i18n="install">How to install</h2>
-      <ol>
-        <li data-i18n="step1">Tap the download button on your Android phone.</li>
-        <li data-i18n="step2">Open the downloaded file. If asked, allow your browser to install unknown apps.</li>
-      </ol>
+    <p class="kicker" data-i18n="joinKicker">Google Play testing · private invitation</p>
+    <h1 id="join-title" data-i18n="joinTitle">Join the FGBG test</h1>
+    <p class="join-intro" data-i18n="intro">Share the Gmail you use on Google Play, your Freelancer or Reddit handle, and your city so we can coordinate your test access.</p>
+    <p data-i18n="pageLanguage">This page language does not guarantee the app is available in the same language.</p>
+    <form id="join-form" method="post" action="https://api.fborder.eumenes.ai/v1/growth/testers" data-endpoint="https://api.fborder.eumenes.ai/v1/growth/testers" novalidate>
+      <div class="field">
+        <label for="gmail" data-i18n="gmail">Gmail used on Google Play</label>
+        <input id="gmail" dir="ltr" name="gmail" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" required maxlength="254" aria-describedby="gmail-help">
+        <small id="gmail-help" data-i18n="gmailHelp">Enter the Gmail address for the Google account you will use to accept the test invitation. Do not share it in recruitment chat.</small>
+      </div>
+      <div class="field">
+        <label for="handle" data-i18n="handle">Freelancer or Reddit handle</label>
+        <input id="handle" name="handle" type="text" autocomplete="off" required>
+      </div>
+      <div class="field">
+        <label for="city" data-i18n="city">City</label>
+        <input id="city" name="city" type="text" autocomplete="address-level2" required>
+      </div>
+      <div class="honeypot" aria-hidden="true" inert>
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="consent-field">
+        <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-help">
+        <label for="consent" data-i18n="consent">I agree that FGBG may use the details I submit to coordinate my testing, and share my Gmail address with Google for test access. This is not marketing consent.</label>
+      </div>
+      <small id="consent-help" class="privacy-note"><span data-i18n="retention">We retain this submission for 30 days. To request removal, email</span> <a href="mailto:support@eumenes.ai">support@eumenes.ai</a>. <span data-i18n="see">See the</span> <a href="/privacy/" data-i18n="privacyPolicy">FGBG Privacy Policy</a>.</small>
+      <button id="submit-button" class="btn primary" type="submit" disabled data-i18n="request">Request test access</button>
+      <p id="join-status" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
+    </form>
+    <section id="success-instructions" class="success-instructions" aria-labelledby="success-title" hidden>
+      <h2 id="success-title" data-i18n="next">Next steps</h2>
+      <p data-i18n="afterJoin">We received your request. We will share next steps through the platform where you found us.</p>
     </section>
-    <p class="join-note" data-i18n="joinFeedback">Try the app and send feedback through the platform where you found us.</p>
-    <p><span data-i18n="pageLanguage">This page language does not guarantee the app is available in the same language.</span> <a href="/download/?lang=en" data-preserve-lang data-i18n="downloadDetails">Download details</a></p>
+    <p class="join-note"><span data-i18n="installNow">Want to install now?</span> <a href="/download" data-preserve-lang data-i18n="apk">Download the APK</a> </p>
+    <noscript><p class="noscript-note" data-i18n="noscript">JavaScript is required to submit this form. Enable JavaScript and reload; this page will not send the form without it.</p></noscript>
   </section>
 </main>
 <footer><p><b>FGBG</b> — Feel Good, Be Good · by EUMENES.AI PTE. LTD.</p><p><a href="/privacy/" data-i18n="privacy">Privacy</a> · <a href="/terms/" data-i18n="terms">Terms</a> · <a href="mailto:support@eumenes.ai">support@eumenes.ai</a></p></footer>
